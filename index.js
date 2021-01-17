@@ -4,12 +4,18 @@ const moment = require('moment') // <==
 
 const server = http.createServer((req, res) => {
     res.statusCode = 200;
-    res.setHeader('Content-Type', 'text/json');
+    res.setHeader('Content-Type', 'text/plain');
     // res.write(moment(). calendar()); //<=cara pakai
-    res.write(JSON.stringify({
-        'status' : 'success',
-        'message' : 'respone success'
-    }));
+    const url = req.url
+    if (url === '/employee'){
+        res.write('data employee');
+    }else{
+        res.write('data apa yang kamu perlukan?')
+    }
+    // res.write(JSON.stringify({
+    //     'status' : 'success',
+    //     'message' : 'respone success'
+    // }));
     res.end();
 
 });
